@@ -1,0 +1,122 @@
+1. Write a program in C# Sharp to find maximum and minimum element in an array.
+-------------------------------------------------- 
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace hands_on_1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int q, max, min, i;
+            int[] MAXMIN= new int[75];
+            
+
+            Console.Write("number of elements to be stored - ");
+            q = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter elements -\n");
+            for (i = 0; i < q; i++)
+            {
+                MAXMIN[i] = Convert.ToInt32(Console.ReadLine());
+            }
+
+
+            max = MAXMIN[0];
+            min = MAXMIN[0];
+
+            for (i = 1; i < q; i++)
+            {
+                if (MAXMIN[i] > max)
+                {
+                    max = MAXMIN[i];
+                }
+                if (MAXMIN[i] < min)
+                {
+                    min = MAXMIN[i];
+                }
+            }
+            Console.Write("Maximum element is : {0}\n", max);
+            Console.Write("Minimum element is : {0}\n\n", min);
+        }
+    }
+}
+
+
+2. Find maximum occurring character in a string :                         
+--------------------------------------------------   
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace hands_on_1_2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter a string :");
+            String str = Console.ReadLine();
+
+            int[] Count = new int[256];
+            int length = str.Length;
+            for (int i = 0; i < length; i++)
+            {
+                Count[str[i]]++;
+            }
+            int max = -1;
+            char element = ' ';
+            for (int i = 0; i < length; i++)
+            {
+                if (max < Count[str[i]])
+                {
+                    max = Count[str[i]];
+                    element = str[i];
+                }
+            }
+          
+            Console.WriteLine("Most occurring element in string is: " + element);
+        }
+
+    }
+}
+
+3. find the position of a specified word in a given string. 
+--------------------------------------------------   
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace hands_on_1_3
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string str;
+            string req;
+     
+            Console.Write("Input a String - ");
+            str = Console.ReadLine();
+
+            Console.Write("Input string to be found - ");
+            req = Console.ReadLine();
+            int index = str.IndexOf(req);
+            if (index < 0)
+                Console.WriteLine("The substring no found  in the given string \n");
+            else
+                Console.WriteLine("Found "+ req + " in " + str + " at position " + index);
+        }
+    }
+}
